@@ -31,64 +31,49 @@ x.start()
 
 #Reading data text file and creating a dictionary type for each city
 
+def create_dictionary(fichier):
+    file = open(fichier, 'r')
+    contents = file.read()
+    city_dictionary = ast.literal_eval(contents)
+    file.close()
+    return city_dictionary
+
+#Call the function  create_dictionary
+
 # Salt Lake City
-file1 = open('salt_lake_city_data.txt', 'r')
-contents1 = file1.read()
-salt_lake_city_dictionary = ast.literal_eval(contents1)
-print(salt_lake_city_dictionary)
+salt_lake_city_dictionary = create_dictionary('salt_lake_city_data.txt')
 
 # Los Angeles
-file2 = open('los_angeles_data.txt', 'r')
-contents2 = file2.read()
-los_angeles_dictionary = ast.literal_eval(contents2)
-#print(los_angeles_dictionary)
-file2.close()
+los_angeles_dictionary = create_dictionary('los_angeles_data.txt')
 
 # Boise
-file3 = open('boise_data.txt', 'r')
-contents3 = file3.read()
-boise_dictionary = ast.literal_eval(contents3)
-#print(boise_dictionary)
-file3.close()
+boise_dictionary = create_dictionary('boise_data.txt')
 
 # Define average of a list Function
 def average_func(l):
     average = round( sum(l) / len(l),2)
     return average
 	
-	
-# List of max_temperature
-    
-# Salt Lake City
-max_temperature_s= []
-for i in range(len(salt_lake_city_dictionary['consolidated_weather'])):
-    max_temperature_s.append(salt_lake_city_dictionary['consolidated_weather'][i]['max_temp'])
-#print(max_temperature_s)
+# Function average_max for city average maximum temperature
 
-# Los Angeles
-max_temperature_l= []
-for i in range(len(los_angeles_dictionary['consolidated_weather'])):
-    max_temperature_l.append(los_angeles_dictionary['consolidated_weather'][i]['max_temp'])
-#print(max_temperature_l)
+def average_max(city_dict):
+    max_temperature= []
+    for i in range(len(city_dict['consolidated_weather'])):
+        max_temperature.append(city_dict['consolidated_weather'][i]['max_temp'])
+    city_aveg_max_temp = average_func(max_temperature)
+    return  city_aveg_max_temp
     
-# Boise
-max_temperature_b= []
-for i in range(len(boise_dictionary['consolidated_weather'])):
-    max_temperature_b.append(boise_dictionary['consolidated_weather'][i]['max_temp'])
-#print(max_temperature_b)
-
-# Average Max temperature list
+# Call the function average_max
 
 # Salt lake city average maximum temperature
-salt_lake_city_aveg_max_temp = average_func(max_temperature_s)
+salt_lake_city_aveg_max_temp =average_max(salt_lake_city_dictionary)
   
-
- # Los Angeles average maximum temperature
-los_angeles_aveg_max_temp = average_func(max_temperature_l)
+# Los Angeles average maximum temperature
+los_angeles_aveg_max_temp = average_max(los_angeles_dictionary)
    
 
 # Boise average maximum temperature
-boise_aveg_max_temp = average_func(max_temperature_b)
+boise_aveg_max_temp = average_max(boise_dictionary)
 
 # Results
 print("Salt Lake City Average Max Temp: ", salt_lake_city_aveg_max_temp)
