@@ -10,4 +10,4 @@ Los Angeles: https://www.metaweather.com/api/location/2442047/
 Boise: https://www.metaweather.com/api/location/2366355/
 According to the MetaWeather API each one of these API calls will return a field called "consolidated_weather". It contains a weather forecast for the city for each day including today and the next 5 days. Each forecast includes a field called "max_temp" that is the max temperature for that forecasted day. 
 ## Output
-A simple list of  each city with the calculated average max_temp.
+A simple display of  each city with the calculated average max_temp.
