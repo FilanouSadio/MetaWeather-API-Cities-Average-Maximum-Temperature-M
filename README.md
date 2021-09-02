@@ -2,7 +2,7 @@
 MetaWeather API repository
 ## Overview
 Using the MetaWeather API ( https://www.metaweather.com/api/)  to find the average max temperature in Salt Lake City, Los Angeles, and Boise for a 6 day forecast
-in python,  The code  makes requests concurrently  of each of the 3 API. 
+in python,  The code  makes requests concurrently  of each of the 3 API. The method apply two different approaches, one with functions and the other with object-oriented. Files in the repository with OOA represent the Object-Oriented Approach.
 ## Details
 The URLs to get temperatures for the 3 cities are:
 Salt Lake City: https://www.metaweather.com/api/location/2487610/
