@@ -1,0 +1,3 @@
+Salt Lake City Average Max Temp:  30.98
+Los Angeles Average Max Temp:  31.9
+Boise Average Max Temp:  32.44
