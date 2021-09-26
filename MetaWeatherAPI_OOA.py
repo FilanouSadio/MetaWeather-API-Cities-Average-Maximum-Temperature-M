@@ -2,10 +2,11 @@
 
 # Immport math library
 import math
-# import module
+# Import module
 import urllib.request
 import ast
 from statistics import mean
+from threading import Thread
 
 
 # Parsing the City Salt Lake City, Los Angeles, Boise Data
@@ -17,6 +18,9 @@ class ExtractCityData:
     # Instance  url_retrieve 
     def url_retrieve(self):
         urllib.request.urlretrieve(self.url, self.output_file )
+    # Applying threading
+    def threading_function(self):
+        threading.Thread(target=self.url_retrieve).start() 
 
 # Data Transformation to dictionary Type
 class TransformToDictionary:
